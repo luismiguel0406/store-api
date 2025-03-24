@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedInteger('PedidoId');
             $table->unsignedInteger('ClienteId');
             $table->string('nombreArticulo');
-            $table->string('unidadesCompradas');
+            $table->integer('unidadesCompradas');
             $table->foreign('PedidoId')->references('PedidoId')->on('tblPedido');
             $table->foreign('ClienteId')->references('ClienteId')->on('tblCliente');
             $table->timestamps();
