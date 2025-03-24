@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('ClienteId');
             $table->string('nombre');
             $table->string('telefono');
-            $table->unsignedBigInteger('tipoClienteId');
-            $table->foreign('tipoClienteId')->references('TipoClienteId')->on('tblTipoCliente');
+            $table->unsignedBigInteger('TipoClienteId');
+            $table->foreign('TipoClienteId')->references('TipoClienteId')->on('tblTipoCliente');
             $table->timestamps();
         });
     }

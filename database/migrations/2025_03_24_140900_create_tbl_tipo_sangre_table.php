@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_tipo_sangre');
+        Schema::dropIfExists('tblTipoSangre');
     }
 };

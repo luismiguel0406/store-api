@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_py1', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tblPy1', function (Blueprint $table) {
+            $table->id('UserId');
+            $table->string('contrasena');
+            $table->string('cedula')->unique();
+            $table->string('telefono');
+            $table->unsignedBigInteger('TipoSangreId');
+            $table->foreign('TipoSangreId')->references('TipoSangreId')->on('tblTipoSangre');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_py1');
+        Schema::dropIfExists('tblPy1');
     }
 };

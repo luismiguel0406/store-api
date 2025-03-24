@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_articulo_colocacion', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tblArticuloColocacion', function (Blueprint $table) {
+            $table->id('ArticuloColocacionId');
+            $table->unsignedBigInteger('ArticuloId');
+            $table->unsignedBigInteger('ColocacionId');
+            $table->string('nombreArticulo');
+            $table->float('precioArticulo');
+            $table->foreign('ArticuloId')->references('ArticuloId')->on('tblArticulo');
+            $table->foreign('ColocacionId')->references('ColocacionId')->on('tblColocacion');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_articulo_colocacion');
+        Schema::dropIfExists('tblArticuloColocacion');
     }
 };

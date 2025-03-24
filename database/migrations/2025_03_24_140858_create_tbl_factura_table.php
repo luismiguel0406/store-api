@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_factura', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tblFactura', function (Blueprint $table) {
+            $table->id('FacturaId');
+            $table->unsignedInteger('PedidoId');
+            $table->unsignedInteger('ClienteId');
+            $table->string('nombreArticulo');
+            $table->string('unidadesCompradas');
+            $table->foreign('PedidoId')->references('PedidoId')->on('tblPedido');
+            $table->foreign('ClienteId')->references('ClienteId')->on('tblCliente');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_factura');
+        Schema::dropIfExists('tblFactura');
     }
 };
