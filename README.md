@@ -19,3 +19,6 @@ Sedders
 Levantar Servidor
 * php artisan serve
 * Ir a localhost:8000
+
+La api ya cuenta con los sedder por defecto:
+usuario: admin, contraseña: 12345678
